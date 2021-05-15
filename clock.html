@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time</title>
+    <style>
+      html {
+        font-size: 10px;
+      }
+      #clock {
+        font-size: 6rem;
+        font-family: Courier New;
+        font-style: bold;
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        border: 0.5rem solid black;
+        border-radius: 0.7rem;
+        padding: 2rem;
+      }
+
+      button {
+        padding: 5rem 3rem;
+      }
+
+      #left {
+        position: absolute;
+        left: 33%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #right {
+        position: absolute;
+        left: 66%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <script>
+      function setTime() {
+        const time = new Date();
+        clock = document.querySelectorAll("h1")[0];
+
+        var month = time.getMonth();
+        var day = time.getDay();
+        var year = time.getFullYear();
+        var hour = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        var milliseconds = time.getMilliseconds();
+
+        if (month < 10) {
+          month = "0" + month;
+        }
+        if (day < 10) {
+          day = "0" + day;
+        }
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        if (milliseconds < 100) {
+          if (milliseconds < 10) milliseconds = "0" + milliseconds;
+          milliseconds = "0" + milliseconds;
+        }
+
+        clock.innerHTML =
+          month +
+          "/" +
+          day +
+          "/" +
+          year +
+          ", " +
+          hour +
+          ":" +
+          minutes +
+          ":" +
+          seconds +
+          "." +
+          milliseconds;
+      }
+    </script>
+  </head>
+  <body onload="setTime(); setInterval('setTime()', 50)">
+    <h1 id="clock">00:00.00</h1>
+    <button id="left">|</button>
+    <button id="right">|</button>
+  </body>
+</html>
