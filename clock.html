@@ -9,7 +9,7 @@
         font-size: 10px;
       }
       #clock {
-        font-size: 6rem;
+        font-size: 500%;
         font-family: Courier New;
         font-style: bold;
         position: absolute;
@@ -27,14 +27,14 @@
 
       #left {
         position: absolute;
-        left: 33%;
+        left: 20%;
         top: 50%;
         transform: translate(-50%, -50%);
       }
 
       #right {
         position: absolute;
-        left: 66%;
+        left: 80%;
         top: 50%;
         transform: translate(-50%, -50%);
       }
@@ -91,7 +91,7 @@
   </head>
   <body onload="setTime(); setInterval('setTime()', 50)">
     <h1 id="clock">00:00.00</h1>
-    <button id="left">|</button>
-    <button id="right">|</button>
+    <button id="left"></button>
+    <button id="right"></button>
   </body>
 </html>
